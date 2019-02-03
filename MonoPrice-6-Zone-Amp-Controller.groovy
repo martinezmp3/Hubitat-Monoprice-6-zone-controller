@@ -2,7 +2,6 @@
  * 
  * MonoPrice 6 Zone Amp Controller
  * 
- * 
  */
 metadata {
 	definition (name: "MonoPrice 6 Zone Amp Controller", namespace: "jorge.martinez", author: "Jorge Martinez") 	{
@@ -107,28 +106,28 @@ private parse(String msg) {
 			}
 			def vol = msg.substring(13,15)
 			if (state.volume != vol){
-				state.volume = vol
-				sendEvent(name: "volume", value: state.volume, isStateChange: true)
+				state.volume = vol.toInteger()
+				sendEvent(name: "volume", value: state.volume.toInteger(), isStateChange: true)
 			}
 			def source = msg.substring(21,23)
 			if (state.mediaSource != source){
-				state.mediaSource = source
-				sendEvent(name: "mediaSource", value: state.mediaSource, isStateChange: true)
+				state.mediaSource = source.toInteger()
+				sendEvent(name: "mediaSource", value: state.mediaSource.toInteger(), isStateChange: true)
 			}
 			def Balance = msg.substring(19,21)
 			if (state.balance != Balance){
-				state.balance = Balance
-				sendEvent(name: "balance", value: state.balance, isStateChange: true)
+				state.balance = Balance.toInteger()
+				sendEvent(name: "balance", value: state.balance.toInteger(), isStateChange: true)
 			}
 			def Bass = msg.substring(17,19)
 			if (state.bass != Bass){
-				state.bass = Bass
-				sendEvent(name: "bass", value: state.bass, isStateChange: true)
+				state.bass = Bass.toInteger()
+				sendEvent(name: "bass", value: state.bass.toInteger(), isStateChange: true)
 			}
 			def Treble = msg.substring(15,17)
 			if (state.treble != Treble){
-				state.treble = Treble
-				sendEvent(name: "treble", value: state.treble, isStateChange: true)
+				state.treble = Treble.toInteger()
+				sendEvent(name: "treble", value: state.treble.toInteger(), isStateChange: true)
 			}
 			
 		}
