@@ -27,7 +27,7 @@ metadata {
 		command "Source4"
 		command "Source5"
 		command "Source6"
-		command "setLevel"  ,["NUMBER"]
+//		command "setLevel"  ,["NUMBER"]
 		command "nextTrack"
 		command "previousTrack"
 	}
@@ -40,6 +40,7 @@ metadata {
 			input name: "NumberAmps", type: "enum", description: "", title: "Number Amps", options: [[1:"1"],[2:"2"],[3:"3"]], defaultValue: 1
 			input name: "Zone", type: "enum", description: "", title: "Zone", options: [[11:"Zone 1"],[12:"Zone 2"],[13:"Zone 3"],[14:"Zone 4"],[15:"Zone 5"],[16:"Zone 6"]], defaultValue: 11
 		    	input name: "Percent",type: "enum", description: "", title: "Percent to dec/enc", options: [[1:1],[2:2],[3:3],[5:5],[10:10],[15:15]], defaultValue: 3
+			input name: "MaxVolumen", type: "NUMBER", description: "", title: "Max volumen allow", defaultValue: 38
 		}
 	}
 }
@@ -183,9 +184,13 @@ def previousTrack(){
 def setLevel (Value){
     if (logEnable) log.debug Value
     try {
-	    	state.volume = Value
-		sendEvent(name: "volume", value: state.volume, isStateChange: true)
-	    	sendMsg ("Zone${settings.Zone}vo=${state.volume}")
+	    if (Value>settings.MaxVolumen)
+	    	Value = settings.MaxVolumen
+	    if (Value<0)
+	    	Value = 0
+	    state.volume = Value
+	    sendEvent(name: "volume", value: state.volume, isStateChange: true)
+	    sendMsg ("Zone${settings.Zone}vo=${state.volume}")
   } catch (Exception e) {
         log.warn "Call to off failed: ${e.message}"
     }
@@ -220,7 +225,9 @@ def volumeUp() {
     		try {
 	    		def newvolume = (state.volume.toInteger() + settings.Percent.toInteger()).toInteger()
 	    		log.debug newvolume
-	    		state.volume = newvolume.toInteger()
+			if (newvolume.toInteger()>settings.MaxVolumen.toInteger()) //ovewrite volume if > that max allow
+				newvolume = settings.MaxVolumen.toInteger()
+	    		state.volume = newvolume
 			sendEvent(name: "volume", value: state.volume.toInteger(), isStateChange: true)
 			sendMsg ("Zone${settings.Zone}vo=${state.volume}")
   		} catch (Exception e) {
@@ -234,6 +241,8 @@ def volumeDown() {
     		try {
 	    		def newvolume = ((state.volume as long) - (settings.Percent as long))
 	    		log.debug newvolume
+			if (newvolume <0)
+				newvolume = 0
 	    		state.volume = newvolume
 			sendEvent(name: "volume", value: state.volume, isStateChange: true)
 	    		sendMsg ("Zone${settings.Zone}vo=${state.volume}")
@@ -245,9 +254,13 @@ def volumeDown() {
 def setVolume(Volume) {
     if (logEnable) log.debug Volume
     try {
-	    	state.volume = Volume
-		sendEvent(name: "volume", value: state.volume, isStateChange: true)
-	    	sendMsg ("Zone${settings.Zone}vo=${state.volume}")
+	    if (Volume>settings.MaxVolumen)
+	    	Volume = settings.MaxVolumen
+	    if (Volume<0)
+	    	Volume = 0
+	    state.volume = Volume
+	    sendEvent(name: "volume", value: state.volume, isStateChange: true)
+	    sendMsg ("Zone${settings.Zone}vo=${state.volume}")
   } catch (Exception e) {
         log.warn "Call to off failed: ${e.message}"
     }
