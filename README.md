@@ -1,3 +1,3 @@
 # Hubitat
 Hubitat Drivers
-Driver for Hubitat
+Driver for Hubitat Elevation Hub
