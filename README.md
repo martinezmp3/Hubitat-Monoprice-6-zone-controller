@@ -19,7 +19,7 @@ Instalation instructions
 - wget https://raw.githubusercontent.com/pavelrevak/ser2tcp/master/ser2tcp.py
 - chmod +x /home/pi/ser2tcp.py
 - sudo nano /lib/systemd/system/ser2tcp.service
-copy and paste:
+- copy and paste:
 #-------------------------------------------------------------------------------------
 [Unit]
 Description=sevice for serial to tcp or telnet server, ser2net python. by Pavel Revak
@@ -32,7 +32,6 @@ Restart=on-abort
 
 [Install]
 WantedBy=multi-user.target
-
 #-------------------------------------------------------------------------------------
 - sudo chmod 644 /lib/systemd/system/ser2tcp.service
 - sudo systemctl daemon-reload
