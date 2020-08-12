@@ -20,6 +20,7 @@ Instalation instructions
 - chmod +x /home/pi/ser2tcp.py
 - sudo nano /lib/systemd/system/ser2tcp.service
 copy and paste:
+#-------------------------------------------------------------------------------------
 [Unit]
 Description=sevice for serial to tcp or telnet server, ser2net python. by Pavel Revak
 After=multi-user.target
@@ -31,6 +32,8 @@ Restart=on-abort
 
 [Install]
 WantedBy=multi-user.target
+
+#-------------------------------------------------------------------------------------
 - sudo chmod 644 /lib/systemd/system/ser2tcp.service
 - sudo systemctl daemon-reload
 - sudo systemctl enable ser2tcp.service
