@@ -8,6 +8,8 @@ What you need:
 -	A Hubitat Hub
 -	A Raspberry Pi (with Ethernet connectivity and in the same network of your hub)
 -	A USB to Serial cable
+- ser2net.py by Pavel Revak https://github.com/pavelrevak/ser2tcp
+
 Instalation instructions
 -	Install Raspbian OS any version (https://www.raspberrypi.org/documentation/installation/installing-images/)
 -	If you want headless “no keyboard, mouse or screen” (https://www.raspberrypi.org/documentation/configuration/wireless/headless.md)
@@ -20,7 +22,7 @@ Instalation instructions
 - chmod +x /home/pi/ser2tcp.py
 - sudo nano /lib/systemd/system/ser2tcp.service
 - copy and paste:
-#-------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------/n
 [Unit]
 Description=sevice for serial to tcp or telnet server, ser2net python. by Pavel Revak
 After=multi-user.target
