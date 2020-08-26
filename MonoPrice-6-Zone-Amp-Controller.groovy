@@ -1,6 +1,7 @@
-/*
+/*   !!!!!!!!!!!!!!!!!!Dont use use parent/child drivers
  * 
  * MonoPrice 6 Zone Amp Controller
+ *
  * 
  */
 metadata {
