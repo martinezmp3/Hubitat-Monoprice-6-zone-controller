@@ -1,10 +1,28 @@
 # Hubitat
-Hubitat Drivers
-Driver for Hubitat Elevation Hub
+
 //****************//
 //***DEPRECATED***//
-//****************//
 Pease use the universal driver work with Linux base computer/TCP-Serial adapert (@jrperson working on a micro controler option wiht added functionalities) https://github.com/martinezmp3/Hubitat-Monoprice-6-zone-controller-TCP-IP-Serial 
+//****************//
+//****************//
+//***DEPRECATED***//
+Pease use the universal driver work with Linux base computer/TCP-Serial adapert (@jrperson working on a micro controler option wiht added functionalities) https://github.com/martinezmp3/Hubitat-Monoprice-6-zone-controller-TCP-IP-Serial 
+
+//****************//
+//****************//
+//***DEPRECATED***//
+Pease use the universal driver work with Linux base computer/TCP-Serial adapert (@jrperson working on a micro controler option wiht added functionalities) https://github.com/martinezmp3/Hubitat-Monoprice-6-zone-controller-TCP-IP-Serial 
+
+//****************//
+//****************//
+//***DEPRECATED***//
+Pease use the universal driver work with Linux base computer/TCP-Serial adapert (@jrperson working on a micro controler option wiht added functionalities) https://github.com/martinezmp3/Hubitat-Monoprice-6-zone-controller-TCP-IP-Serial 
+//****************//
+
+
+Hubitat Drivers
+Driver for Hubitat Elevation Hub
+
 
 (this is a work in progress any feed back will be really appreciate)
 
